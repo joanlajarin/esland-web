@@ -1,0 +1,35 @@
+---
+import Logo from './Logo.astro';
+import {getI18N} from '../i18n'
+
+const { currentLocale } = Astro
+const i18n = getI18N({ currentLocale })
+---
+
+<section class="text-xl text-left px-20 max-w-[70ch] text-pretty mx-auto my-24">
+    <Logo class="w-16 pb-4 m-auto"/>
+    <h1
+        class="text-4xl font-semibold text-center text-wrap mx-auto mb-10 tracking-wide"
+    >
+        {i18n.INFO_TITLE_1}<br/>{i18n.INFO_TITLE_2}
+    </h1>
+    <p set:html={i18n.INTRO_DESCRIPTION_1}></p>
+    <p set:html={i18n.INTRO_DESCRIPTION_2}></p>
+    <p set:html={i18n.INTRO_DESCRIPTION_3}></p>
+</section>
+
+<style>
+	p {
+		color: rgba(255, 255, 255, 0.9);
+		line-height: 1.4;
+		margin-bottom: 1em;
+		font-weight: 100;
+		font-size: 1em;
+		letter-spacing: .5px;
+	}
+	p strong {
+		color: white;
+		font-weight: 700;
+	}
+
+</style>
